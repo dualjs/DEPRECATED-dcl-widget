@@ -91,5 +91,29 @@ exports['dcl-widget'] = {
 
 
         test.done();
+    },
+
+    'cssClass as string': function(test) {
+        test.expect(2);
+
+        var W = Widget.extend({
+            ATTRS: {
+                foo: {
+                    cssClass: 'test'
+                }
+            },
+
+            initStructure: function() {
+                this.$ = D.fromJSON(['div']);
+            }
+        });
+
+        var w = new W();
+        w.setFoo(true);
+        test.equal(w.stringify(), '<div class="test"></div>');
+        w.setFoo(false);
+        test.equal(w.stringify(), '<div class=""></div>');
+
+        test.done();
     }
 };

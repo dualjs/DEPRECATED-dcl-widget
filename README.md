@@ -21,8 +21,8 @@ var w = new MyWidget();
 
 Differences between standard dual.Widget and DCLWidget:
 
- - new attribute description field `cssClass` - map of attribute values to CSS classes
- - new attribute description field `cssClassAsset` - name of asset that accepts CSS classes from `cssClass`
+ - new attribute description field `cssClass` `{Object|String}` - map of attribute values to CSS classes
+ - new attribute description field `cssClassAsset` `{String}` - name of asset that accepts CSS classes from `cssClass`
  
 Nothing more yet.
 
