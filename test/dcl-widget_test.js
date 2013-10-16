@@ -28,13 +28,13 @@ exports['dcl-widget'] = {
         // setup here
         done();
     },
-    'classMap': function(test) {
+    'cssClass': function(test) {
         test.expect(3);
 
         var W = Widget.extend({
             ATTRS: {
                 foo: {
-                    classMap: {
+                    cssClass: {
                         '1': 'foo-one',
                         '2': 'foo-two',
                         '3': 'foo-three'
@@ -59,18 +59,18 @@ exports['dcl-widget'] = {
         test.done();
     },
 
-    'classAsset': function(test) {
+    'cssClassAsset': function(test) {
         test.expect(3);
 
         var W = Widget.extend({
             ATTRS: {
                 foo: {
-                    classMap: {
+                    cssClass: {
                         '1': 'foo-one',
                         '2': 'foo-two',
                         '3': 'foo-three'
                     },
-                    classAsset : 'foo' // <-- asset that would accept CSS class from classMap
+                    cssClassAsset : 'foo' // <-- asset that would accept CSS class from cssClass
                 }
             },
 
