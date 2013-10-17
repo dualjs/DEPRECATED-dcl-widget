@@ -70,13 +70,15 @@ exports['dcl-widget'] = {
                         '2': 'foo-two',
                         '3': 'foo-three'
                     },
-                    cssClassAsset : 'foo' // <-- asset that would accept CSS class from cssClass
+                    cssClassAsset: 'foo' // <-- asset that would accept CSS class from cssClass
                 }
             },
 
             initStructure: function() {
                 this.$ = D.fromJSON(['div', [
-                    ['ul', {'ui:asset':'foo'}]
+                    ['ul', {
+                        'ui:asset': 'foo'
+                    }]
                 ]]);
             }
         });
@@ -115,5 +117,60 @@ exports['dcl-widget'] = {
         test.equal(w.stringify(), '<div class=""></div>');
 
         test.done();
+    },
+
+    'multiple attrs': function(test) {
+        test.expect(2);
+
+        var W = Widget.extend({
+            ATTRS: {
+                foo: {
+                    cssClass: 'test'
+                },
+                bar: {
+                    cssClass: 'example'
+                }
+            },
+
+            initStructure: function() {
+                this.$ = D.fromJSON(['div']);
+            }
+        });
+
+        var w = new W();
+        w.setFoo(true);
+        test.equal(w.stringify(), '<div class="test"></div>');
+        w.setBar(true);
+        test.equal(w.stringify(), '<div class="test example"></div>');
+
+        test.done();
+    },
+
+    'htmlAttribute': function(test) {
+        test.expect(1);
+
+        var W = Widget.extend({
+            ATTRS: {
+                url: {
+                    htmlAttribute: 'href',
+                    htmlAttributeAsset: 'link'
+                }
+            },
+
+            initStructure: function() {
+                this.$ = D.fromJSON([
+                    'div', [
+                        ['a', {'ui:asset':'link'}]
+                    ]
+                ]);
+            }
+        });
+
+        var w = new W();
+        w.setUrl('http://example.com/');
+        test.equal(w.stringify(), '<div><a href="http://example.com/"></a></div>');
+
+        test.done();
+
     }
 };
