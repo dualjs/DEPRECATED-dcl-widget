@@ -160,7 +160,9 @@ exports['dcl-widget'] = {
             initStructure: function() {
                 this.$ = D.fromJSON([
                     'div', [
-                        ['a', {'ui:asset':'link'}]
+                        ['a', {
+                            'ui:asset': 'link'
+                        }]
                     ]
                 ]);
             }
@@ -169,6 +171,57 @@ exports['dcl-widget'] = {
         var w = new W();
         w.setUrl('http://example.com/');
         test.equal(w.stringify(), '<div><a href="http://example.com/"></a></div>');
+
+        test.done();
+
+    },
+
+    'textAsset': function(test) {
+        test.expect(1);
+
+        var W = Widget.extend({
+            ATTRS: {
+                linkText: {
+                    textAsset: 'link'
+                }
+            },
+
+            initStructure: function() {
+                this.$ = D.fromJSON([
+                    'div', [
+                        ['a', {
+                            'ui:asset': 'link'
+                        }]
+                    ]
+                ]);
+            }
+        });
+
+        var w = new W();
+        w.setLinkText('hello');
+        test.equal(w.stringify(), '<div><a>hello</a></div>');
+
+        test.done();
+
+    },
+    'textAssetRoot': function(test) {
+        test.expect(1);
+
+        var W = Widget.extend({
+            ATTRS: {
+                rootText: {
+                    textAsset: false
+                }
+            },
+
+            initStructure: function() {
+                this.$ = D.fromJSON(['div']);
+            }
+        });
+
+        var w = new W();
+        w.setRootText('hello');
+        test.equal(w.stringify(), '<div>hello</div>');
 
         test.done();
 

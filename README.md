@@ -26,6 +26,9 @@ var MyWidget = DCLWidget.extend({
         helpUrl: {
             htmlAttribute : 'href',
             htmlAttributeAsset : 'link'
+        },
+        helpText: {
+            textAsset : 'link'
         }
     },
     initStructure : function () {
@@ -42,7 +45,9 @@ w.setSize('big'); //will turn off CSS class `widget-size-small` and turn on `wid
 
 w.setType('error'); //will turn off CSS class `label-color-success` and turn on `label-color-error` of `label` asset
 
-w.setHelpUrl('http://example.com/'); //will set `href` attribute of `link` asset
+w.setHelpUrl('http://example.com/'); //will set `href` attribute of `link` asset to `'http://example.com/'`
+
+w.setHelpText('More...'); //will set text of `link` asset to `'More...'`
 ```
 
 Differences between standard dual.Widget and DCLWidget:
