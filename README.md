@@ -56,6 +56,7 @@ Differences between standard dual.Widget and DCLWidget:
  - new attribute description field `cssClassAsset` `{String}` - name of asset that `cssClass` is bound to
  - new attribute description field `htmlAttribute` `{String}` - bound html attribute
  - new attribute description field `htmlAttributeAsset` `{String}` - name of asset that `htmlAttribute` is bound to
+ - new attribute description field `textAsset` `{String}` - name of asset that text will be bound to the attribute
 
 Nothing more yet.
 
