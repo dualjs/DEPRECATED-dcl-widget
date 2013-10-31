@@ -1,6 +1,6 @@
 # dcl-widget
 
->>> DEPRECATED: merged into dual `Widget`
+>>> DEPRECATED: merged into  `dual.Widget`
 
 Base class for DCL Widgets.
 
