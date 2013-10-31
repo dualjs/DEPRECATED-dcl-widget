@@ -1,5 +1,7 @@
 # dcl-widget
 
+>>> DEPRECATED: merged into dual `Widget`
+
 Base class for DCL Widgets.
 
 When creating new DCL widget, extend from this class.
